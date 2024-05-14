@@ -1,0 +1,11 @@
+Flask
+scikit-learn
+numpy
+pandas
+matplotlib
+opendatasets
+keras
+tensorflow
+Werkzeug==1.0.1
+dlib
+opencv-python
