@@ -1,31 +1,83 @@
 {% extends "base.html" %} {% block content %}
 
-<h2>Image Classifier</h2>
+<div class="hero-section">
+    <h1 class="main-title">
+        <i class="fas fa-eye"></i> Deepfake Image Detector
+    </h1>
+    <p class="subtitle">Upload an image to verify its authenticity using advanced AI technology</p>
+</div>
 
-<div>
-    <form id="upload-file" method="post" enctype="multipart/form-data">
-        <label for="imageUpload" class="upload-label">
-            Choose...
-        </label>
-        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-    </form>
+<div class="main-content">
+    <div class="upload-container">
+        <form id="upload-file" method="post" enctype="multipart/form-data">
+            <div class="drop-zone" id="drop-zone">
+                <div class="drop-zone-content">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h3>Drag & Drop your image here</h3>
+                    <p class="or-text">or</p>
+                    <label for="imageUpload" class="upload-label">
+                        <i class="fas fa-folder-open"></i> Browse Files
+                    </label>
+                    <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+                    <p class="file-info">Supported formats: JPG, JPEG, PNG (Max 10MB)</p>
+                </div>
+            </div>
+        </form>
+    </div>
 
     <div class="image-section" style="display:none;">
-        <div class="img-preview">
-            <div id="imagePreview">
+        <div class="preview-container">
+            <h4><i class="fas fa-image"></i> Image Preview</h4>
+            <div class="img-preview">
+                <div id="imagePreview"></div>
             </div>
-        </div>
-        <div>
-            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+            <div class="action-buttons">
+                <button type="button" class="btn btn-analyze" id="btn-predict">
+                    <i class="fas fa-search"></i> Analyze Image
+                </button>
+                <button type="button" class="btn btn-reset" id="btn-reset">
+                    <i class="fas fa-redo"></i> Upload Another
+                </button>
+            </div>
         </div>
     </div>
 
-    <div class="loader" style="display:none;"></div>
+    <div class="loader-container" style="display:none;">
+        <div class="loader"></div>
+        <p class="loader-text">Analyzing image... Please wait</p>
+    </div>
 
-    <h3 id="result">
-        <span> </span>
-    </h3>
+    <div id="result-section" style="display:none;">
+        <div id="result" class="result-card">
+            <span></span>
+        </div>
+    </div>
+</div>
 
+<div class="info-section">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="info-card">
+                <i class="fas fa-brain info-icon"></i>
+                <h5>AI-Powered</h5>
+                <p>Advanced deep learning model trained on thousands of images</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-card">
+                <i class="fas fa-bolt info-icon"></i>
+                <h5>Fast Analysis</h5>
+                <p>Get results in seconds with our optimized detection algorithm</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-card">
+                <i class="fas fa-lock info-icon"></i>
+                <h5>Secure & Private</h5>
+                <p>Your images are processed securely and not stored permanently</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
